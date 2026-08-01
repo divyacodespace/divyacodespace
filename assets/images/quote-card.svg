@@ -1,0 +1,20 @@
+<svg width="700" height="110" viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="qbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1120"/>
+      <stop offset="100%" stop-color="#111A33"/>
+    </linearGradient>
+    <linearGradient id="qaccent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <style>
+      .qf { font-family: -apple-system, 'Segoe UI', Inter, Roboto, sans-serif; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="699" height="109" rx="14" fill="url(#qbg)" stroke="#233150"/>
+  <rect x="0" y="0" width="5" height="110" rx="2.5" fill="url(#qaccent)"/>
+  <text x="40" y="30" font-size="34" fill="#7C3AED" class="qf" font-weight="700">&#8220;</text>
+  <text x="66" y="52" font-size="17" fill="#F8FAFC" class="qf" font-weight="600">If it can be built with AI, I'll build it.</text>
+  <text x="66" y="80" font-size="13" fill="#9FB3D9" class="qf">— Divya VT · AI Agent Builder &amp; Founder, Clyra</text>
+</svg>

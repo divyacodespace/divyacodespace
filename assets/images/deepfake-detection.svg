@@ -1,0 +1,48 @@
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1120"/>
+      <stop offset="100%" stop-color="#0E1428"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <clipPath id="round"><rect width="600" height="300" rx="16"/></clipPath>
+    <style>
+      .card-font { font-family: -apple-system, 'Segoe UI', Inter, Roboto, sans-serif; }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="600" height="300" fill="url(#bg)"/>
+    <circle cx="80" cy="60" r="150" fill="url(#glow)" filter="url(#soft)"/>
+    <rect width="600" height="300" fill="none" stroke="#233150" stroke-width="1"/>
+    <rect x="0" y="0" width="600" height="4" fill="url(#accent)"/>
+
+    <circle cx="56" cy="70" r="28" fill="#111A33" stroke="#233150"/>
+    <text x="56" y="80" text-anchor="middle" font-size="26" class="card-font">🕵️</text>
+
+    <text x="100" y="66" font-size="12" letter-spacing="2" fill="#7C8DB5" class="card-font" font-weight="600">PROJECT 02</text>
+    <text x="100" y="92" font-size="26" fill="#F8FAFC" class="card-font" font-weight="700">Deepfake Detection</text>
+
+    <text x="56" y="130" font-size="14" fill="#B8C4E0" class="card-font">ML platform that spots fakes in images &amp; video.</text>
+    <text x="56" y="152" font-size="14" fill="#B8C4E0" class="card-font">TensorFlow models behind a Flask + React app.</text>
+
+    <rect x="56" y="206" width="88" height="26" rx="13" fill="#111A33" stroke="#233150"/>
+    <text x="100.0" y="223" text-anchor="middle" font-size="12" fill="#CBD5F5" class="card-font">TensorFlow</text>
+    <rect x="154" y="206" width="123" height="26" rx="13" fill="#111A33" stroke="#233150"/>
+    <text x="215.5" y="223" text-anchor="middle" font-size="12" fill="#CBD5F5" class="card-font">Computer Vision</text>
+    <rect x="287" y="206" width="95" height="26" rx="13" fill="#111A33" stroke="#233150"/>
+    <text x="334.5" y="223" text-anchor="middle" font-size="12" fill="#CBD5F5" class="card-font">Flask+React</text>
+
+    <text x="56" y="264" font-size="12" fill="#5B6B8C" class="card-font" letter-spacing="0.5">divyavt.vercel.app/work.html</text>
+  </g>
+</svg>

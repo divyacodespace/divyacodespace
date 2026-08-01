@@ -1,0 +1,18 @@
+<svg width="1200" height="40" viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B1120" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#7C3AED" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.9"/>
+      <stop offset="85%" stop-color="#3B82F6" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0B1120" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      @keyframes shimmer { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -120; } }
+      .line { animation: shimmer 3.2s linear infinite; }
+    </style>
+  </defs>
+  <line x1="0" y1="20" x2="1200" y2="20" stroke="url(#divGrad)" stroke-width="1.5"/>
+  <path class="line" d="M0,20 L1200,20" fill="none" stroke="url(#divGrad)" stroke-width="1.5"
+        stroke-dasharray="6 10" opacity="0.7"/>
+</svg>
