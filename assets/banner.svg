@@ -1,281 +1,397 @@
-<svg class="workspace-svg" viewBox="0 0 760 500" xmlns="http://www.w3.org/2000/svg">
+<svg width="1960" height="780" viewBox="0 0 1960 780" xmlns="http://www.w3.org/2000/svg">
 <style>
-  .workspace-svg{ width:100%; height:100%; background:#050816; }
-
-  .float-slow{ animation:floatSlow 6s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
-  .float-med{ animation:floatSlow 4.5s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
-  .float-fast{ animation:floatSlow 3.4s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
-  @keyframes floatSlow{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-9px); }
-  }
-
-  .glow-pulse{ animation:glowPulse 3s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
-  @keyframes glowPulse{
-    0%,100%{ opacity:0.55; }
-    50%{ opacity:1; }
-  }
-
-  .spin-slow{ animation:spin 22s linear infinite; transform-box:fill-box; transform-origin:center; }
-  .spin-rev{ animation:spinRev 26s linear infinite; transform-box:fill-box; transform-origin:center; }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-  @keyframes spinRev{ to{ transform:rotate(-360deg); } }
-
-  .breathe{ animation:breathe 4.5s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
-  @keyframes breathe{
-    0%,100%{ transform:scale(1); opacity:0.85; }
-    50%{ transform:scale(1.05); opacity:1; }
-  }
-
-  .cursor-blink{ animation:blink 1s step-end infinite; }
+  .mono{ font-family:'Consolas','Courier New',monospace; }
+  .sans{ font-family:'Inter','Segoe UI',system-ui,sans-serif; }
+  .blink{ animation:blink 1.1s step-end infinite; }
   @keyframes blink{ 50%{ opacity:0; } }
-
-  .node-pulse circle{ animation:nodePulse 2.6s ease-in-out infinite; }
-  @keyframes nodePulse{
-    0%,100%{ r:3.2; opacity:0.7; }
-    50%{ r:4.4; opacity:1; }
-  }
-
-  .card-hover{ transition:transform .3s ease; }
-
-  .wire-flow{ stroke-dasharray:5 7; animation:dashFlow 3.5s linear infinite; }
-  @keyframes dashFlow{ to{ stroke-dashoffset:-140; } }
-
-  .svg-particle{ animation:svgFloat 5s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
-  @keyframes svgFloat{
-    0%,100%{ transform:translateY(0); opacity:0.4; }
-    50%{ transform:translateY(-14px); opacity:1; }
-  }
-
-  /* code syntax colors (resolved from CSS custom properties) */
-  .kw{ fill:#C084FC; }
-  .str{ fill:#34D399; }
-  .fn{ fill:#60A5FA; }
-  .var{ fill:#F3F1FF; }
-  .com{ fill:#6B6C8E; }
+  .pulse{ animation:pulse 2.6s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+  @keyframes pulse{ 0%,100%{ opacity:0.6; } 50%{ opacity:1; } }
+  .float{ animation:floaty 5s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+  @keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-8px);} }
+  .twinkle{ animation:tw 3s ease-in-out infinite; }
+  @keyframes tw{ 0%,100%{ opacity:0.2;} 50%{ opacity:0.9;} }
+  .steam{ animation:steamRise 4s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+  @keyframes steamRise{ 0%{ transform:translateY(0); opacity:0;} 30%{opacity:0.6;} 100%{ transform:translateY(-18px); opacity:0;} }
 </style>
-  <rect x="0" y="0" width="760" height="500" fill="#050816"/>
-      <defs>
-        <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#12162e"/>
-          <stop offset="1" stop-color="#0a0e22"/>
-        </linearGradient>
-        <linearGradient id="laptopBody" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#1a1f3d"/>
-          <stop offset="1" stop-color="#0d1026"/>
-        </linearGradient>
-        <linearGradient id="baseTop" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#232a4d"/>
-          <stop offset="1" stop-color="#161a34"/>
-        </linearGradient>
-        <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#A855F7" stop-opacity="0.9"/>
-          <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="shieldGlow" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.8"/>
-          <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="rgba(124,58,237,0.16)"/>
-          <stop offset="1" stop-color="rgba(6,182,212,0.10)"/>
-        </linearGradient>
-        <filter id="softBlur"><feGaussianBlur stdDeviation="6"/></filter>
-        <filter id="glowFilter" x="-60%" y="-60%" width="220%" height="220%">
-          <feGaussianBlur stdDeviation="4" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
 
-      <!-- ===================== floor glow ===================== -->
-      <ellipse cx="380" cy="430" rx="300" ry="46" fill="#7C3AED" opacity="0.12" filter="url(#softBlur)"/>
+<defs>
+  <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#5B8DEF"/>
+    <stop offset="1" stop-color="#A855F7"/>
+  </linearGradient>
+  <linearGradient id="personGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#3B2E6B"/>
+    <stop offset="1" stop-color="#1A1440"/>
+  </linearGradient>
+  <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#241C48"/>
+    <stop offset="1" stop-color="#120E28"/>
+  </linearGradient>
+  <linearGradient id="winGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="rgba(124,58,237,0.08)"/>
+    <stop offset="1" stop-color="rgba(6,182,212,0.05)"/>
+  </linearGradient>
+  <radialGradient id="deskGlow" cx="50%" cy="0%" r="80%">
+    <stop offset="0" stop-color="#7C3AED" stop-opacity="0.16"/>
+    <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+  </radialGradient>
+</defs>
 
-      <!-- ===================== AI brain hologram (back) ===================== -->
-      <g transform="translate(560,120)">
-        <circle r="46" fill="url(#brainGlow)" class="breathe"/>
-        <g class="spin-slow" stroke="#C084FC" stroke-width="1.2" fill="none" opacity="0.8">
-          <ellipse rx="40" ry="16"/>
-          <ellipse rx="40" ry="16" transform="rotate(60)"/>
-          <ellipse rx="40" ry="16" transform="rotate(120)"/>
-        </g>
-        <g class="spin-rev">
-          <circle cx="0" cy="0" r="4" fill="#E9D5FF"/>
-          <circle cx="34" cy="10" r="2.6" fill="#C084FC"/>
-          <circle cx="-30" cy="-14" r="2.6" fill="#C084FC"/>
-          <circle cx="-20" cy="26" r="2.2" fill="#A855F7"/>
-        </g>
-      </g>
+<!-- ================= BACKGROUND ================= -->
+<rect x="0" y="0" width="1960" height="780" fill="#050816"/>
+<rect x="0" y="0" width="1960" height="780" fill="url(#deskGlow)"/>
 
-      <!-- ===================== network / API nodes ===================== -->
-      <g transform="translate(640,250)" class="float-med">
-        <g stroke="#3B82F6" stroke-width="1" opacity="0.55">
-          <line x1="0" y1="0" x2="46" y2="-28"/>
-          <line x1="0" y1="0" x2="50" y2="18"/>
-          <line x1="0" y1="0" x2="8" y2="46"/>
-          <line x1="46" y1="-28" x2="50" y2="18"/>
-        </g>
-        <g class="node-pulse" fill="#60A5FA">
-          <circle cx="0" cy="0" r="3.6"/>
-          <circle cx="46" cy="-28" r="3.2"/>
-          <circle cx="50" cy="18" r="3.4"/>
-          <circle cx="8" cy="46" r="3"/>
-        </g>
-      </g>
+<!-- faint grid -->
+<g stroke="#8B5CF6" stroke-opacity="0.045">
+  <g id="vlines"></g>
+</g>
+<g stroke="#8B5CF6" stroke-opacity="0.05">
+  <line x1="0" y1="130" x2="1960" y2="130"/>
+  <line x1="0" y1="260" x2="1960" y2="260"/>
+  <line x1="0" y1="390" x2="1960" y2="390"/>
+  <line x1="0" y1="520" x2="1960" y2="520"/>
+  <line x1="0" y1="650" x2="1960" y2="650"/>
+</g>
 
-      <!-- ===================== cloud icon ===================== -->
-      <g transform="translate(120,70)" class="float-slow">
-        <g filter="url(#glowFilter)">
-          <path d="M-30,10 a16,16 0 0 1 4,-31 a22,22 0 0 1 42,-4 a17,17 0 0 1 -2,34 h-40 a12,12 0 0 1 -4,-23 z"
-                fill="rgba(59,130,246,0.14)" stroke="#3B82F6" stroke-width="1.4"/>
-        </g>
-      </g>
+<!-- scattered dot texture bottom-left -->
+<g fill="#7C3AED" fill-opacity="0.35">
+  <circle class="twinkle" cx="30" cy="560" r="1.6"/>
+  <circle class="twinkle" cx="60" cy="600" r="1.6" style="animation-delay:-1s"/>
+  <circle class="twinkle" cx="20" cy="640" r="1.6" style="animation-delay:-2s"/>
+  <circle class="twinkle" cx="70" cy="680" r="1.6" style="animation-delay:-0.5s"/>
+  <circle class="twinkle" cx="40" cy="720" r="1.6" style="animation-delay:-1.5s"/>
+  <circle class="twinkle" cx="80" cy="560" r="1.6" style="animation-delay:-2.5s"/>
+  <circle class="twinkle" cx="100" cy="620" r="1.6" style="animation-delay:-0.8s"/>
+</g>
 
-      <!-- ===================== database icon ===================== -->
-      <g transform="translate(200,380)" class="float-med">
-        <g fill="none" stroke="#06B6D4" stroke-width="1.4" opacity="0.85">
-          <ellipse cx="0" cy="-14" rx="22" ry="8" fill="rgba(6,182,212,0.10)"/>
-          <path d="M-22,-14 v20 a22,8 0 0 0 44,0 v-20"/>
-          <path d="M-22,-2 a22,8 0 0 0 44,0" opacity="0.6"/>
-        </g>
-      </g>
+<!-- ================= TOP GIT COMMAND ================= -->
+<text x="42" y="46" class="mono" font-size="20" fill="#6EE7B7">&gt;</text>
+<text x="66" y="46" class="mono" font-size="20" fill="#A9B4D0">git push future --force</text>
 
-      <!-- ===================== git branch visualization ===================== -->
-      <g transform="translate(60,240)" class="float-slow">
-        <g stroke="#A855F7" stroke-width="1.6" fill="none" opacity="0.8">
-          <path d="M0,0 v60"/>
-          <path d="M0,20 C10,20 14,34 26,34"/>
-          <path d="M26,34 v26"/>
-        </g>
-        <g fill="#C084FC">
-          <circle cx="0" cy="0" r="3.4"/>
-          <circle cx="0" cy="20" r="3.4"/>
-          <circle cx="0" cy="60" r="3.4"/>
-          <circle cx="26" cy="34" r="3.4"/>
-          <circle cx="26" cy="60" r="3.4"/>
-        </g>
-      </g>
+<!-- ================= LEFT FILE TREE ================= -->
+<g class="mono" font-size="17">
+  <text x="66" y="112" fill="#C4B5FD">&#9662;</text>
+  <path d="M74,105 l7,4 l7,-4" fill="#8B5CF6"/>
+  <text x="90" y="112" fill="#B9B7D9">ai</text>
 
-      <!-- ===================== cyber shield ===================== -->
-      <g transform="translate(660,400)" class="float-fast">
-        <circle r="30" fill="url(#shieldGlow)"/>
-        <path d="M0,-20 L17,-12 V6 C17,18 9,26 0,30 C-9,26 -17,18 -17,6 V-12 Z"
-              fill="rgba(6,182,212,0.14)" stroke="#06B6D4" stroke-width="1.6" class="glow-pulse"/>
-        <path d="M-7,2 l5,6 l10,-13" fill="none" stroke="#67E8F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
+  <g stroke="#2E2A55" stroke-width="1">
+    <line x1="80" y1="120" x2="80" y2="330"/>
+  </g>
 
-      <!-- ===================== small graph card ===================== -->
-      <g transform="translate(560,340)" class="float-med card-hover">
-        <rect x="-46" y="-30" width="92" height="60" rx="10" fill="url(#cardGrad)" stroke="#7C3AED" stroke-opacity="0.35" stroke-width="1"/>
-        <polyline points="-34,10 -18,-4 -4,4 12,-14 30,-8" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="30" cy="-8" r="2.4" fill="#34D399"/>
-      </g>
+  <!-- children -->
+  <g fill="#9CA3C4">
+    <path d="M100,140 l6,4 l6,-4 h-12z" fill="#6B6FA5" opacity="0.8"/>
+    <text x="122" y="147">backend</text>
 
-      <!-- ===================== floating window: API flow ===================== -->
-      <g transform="translate(30,120)" class="float-fast card-hover">
-        <rect x="-8" y="-24" width="86" height="48" rx="9" fill="url(#cardGrad)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
-        <text x="8" y="-8" font-size="8" fill="#93C5FD" font-family="monospace">GET /api/v1</text>
-        <text x="8" y="4" font-size="8" fill="#6EE7B7" font-family="monospace">200 OK ✓</text>
-        <text x="8" y="16" font-size="7" fill="#6B6C8E" font-family="monospace">42ms</text>
-      </g>
+    <path d="M100,178 l6,4 l6,-4 h-12z" fill="#6B6FA5" opacity="0.8"/>
+    <text x="122" y="185">frontend</text>
 
-      <!-- ===================== digital circuits accent ===================== -->
-      <g transform="translate(700,60)" opacity="0.8">
-        <g stroke="#8B5CF6" stroke-width="1.2" fill="none" class="wire-flow">
-          <path d="M0,0 h-30 v20 h-16"/>
-        </g>
-        <circle cx="0" cy="0" r="2.6" fill="#C084FC"/>
-        <circle cx="-46" cy="20" r="2.6" fill="#C084FC"/>
-      </g>
+    <path d="M100,216 l6,4 l6,-4 h-12z" fill="#6B6FA5" opacity="0.8"/>
+    <text x="122" y="223">cloud</text>
 
-      <!-- ===================== ISOMETRIC LAPTOP ===================== -->
-      <g transform="translate(300,190)">
+    <path d="M100,254 l6,4 l6,-4 h-12z" fill="#6B6FA5" opacity="0.8"/>
+    <text x="122" y="261">data</text>
 
-        <!-- base / keyboard deck (isometric parallelogram) -->
-        <g transform="translate(0,196)">
-          <polygon points="-190,10 190,10 250,58 -250,58" fill="url(#baseTop)" stroke="#2E2A55" stroke-width="1"/>
-          <polygon points="-250,58 250,58 250,70 -250,70" fill="#0c0e20"/>
-          <!-- keyboard hint lines -->
-          <g stroke="#3A3568" stroke-width="1" opacity="0.6">
-            <line x1="-150" y1="24" x2="150" y2="24"/>
-            <line x1="-165" y1="34" x2="165" y2="34"/>
-            <line x1="-180" y1="44" x2="180" y2="44"/>
-          </g>
-          <!-- trackpad glow -->
-          <ellipse cx="0" cy="34" rx="46" ry="10" fill="#7C3AED" opacity="0.10"/>
-        </g>
+    <path d="M100,292 l6,4 l6,-4 h-12z" fill="#6B6FA5" opacity="0.8"/>
+    <text x="122" y="299">tools</text>
+  </g>
 
-        <!-- screen back panel (tilted) -->
-        <polygon points="-190,10 190,10 165,-210 -165,-210" fill="url(#laptopBody)" stroke="#2E2A55" stroke-width="1.4"/>
+  <path d="M66,332 l6,4 l6,-4 h-12z" fill="#6B6FA5" opacity="0.9"/>
+  <text x="90" y="339" fill="#B9B7D9">projects</text>
 
-        <!-- screen bezel + display -->
-        <polygon points="-172,-4 172,-4 152,-192 -152,-192" fill="#000" opacity="0.4"/>
-        <polygon points="-166,-10 166,-10 148,-186 -148,-186" fill="url(#screenGrad)" stroke="#7C3AED" stroke-opacity="0.5" stroke-width="1"/>
+  <rect x="66" y="358" width="14" height="17" rx="2" fill="none" stroke="#67E8F9" stroke-width="1.4"/>
+  <line x1="70" y1="365" x2="76" y2="365" stroke="#67E8F9" stroke-width="1.2"/>
+  <line x1="70" y1="370" x2="76" y2="370" stroke="#67E8F9" stroke-width="1.2"/>
+  <text x="90" y="372" fill="#67E8F9">README.md</text>
+</g>
 
-        <!-- screen glow -->
-        <polygon points="-166,-10 166,-10 148,-186 -148,-186" fill="#7C3AED" opacity="0.06" class="glow-pulse"/>
+<!-- vertical divider -->
+<line x1="230" y1="80" x2="230" y2="600" stroke="#1D1B3A" stroke-width="1"/>
 
-        <!-- ============= CODE EDITOR CONTENT ============= -->
-        <g transform="translate(-142,-176) scale(0.985)" clip-path="url(#screenClip)">
-          <!-- editor top bar -->
-          <rect x="0" y="0" width="286" height="16" fill="#161a34"/>
-          <circle cx="10" cy="8" r="3" fill="#F87171"/>
-          <circle cx="22" cy="8" r="3" fill="#FBBF24"/>
-          <circle cx="34" cy="8" r="3" fill="#34D399"/>
-          <text x="130" y="11" font-size="7.5" fill="#6B6C8E" font-family="monospace">agent.py</text>
+<!-- ================= MAIN NAME BLOCK ================= -->
+<g class="sans" font-weight="800">
+  <text x="270" y="185" font-size="86" fill="#F5F3FF">Divya</text>
+  <text x="470" y="185" font-size="60" fill="#67E8F9">&lt;/&gt;</text>
 
-          <!-- code lines -->
-          <g font-family="Consolas, monospace" font-size="9.4">
-            <text x="8" y="34"><tspan fill="#C084FC">def</tspan><tspan fill="#60A5FA"> build_ai</tspan><tspan fill="#F3F1FF">():</tspan></text>
-            <text x="8" y="50"><tspan fill="#F3F1FF">    agent = </tspan><tspan fill="#60A5FA">CrewAI</tspan><tspan fill="#F3F1FF">()</tspan></text>
-            <text x="8" y="66"><tspan fill="#F3F1FF">    model = </tspan><tspan fill="#34D399">"Llama-3"</tspan></text>
-            <text x="8" y="82"><tspan fill="#C084FC">    return</tspan><tspan fill="#F3F1FF"> agent.</tspan><tspan fill="#60A5FA">run</tspan><tspan fill="#F3F1FF">()</tspan></text>
-            <text x="8" y="98"><tspan fill="#6B6C8E"># vector memory online</tspan></text>
-          </g>
+  <text x="270" y="278" font-size="86" fill="url(#nameGrad)">Venkatachalam</text>
 
-          <!-- terminal panel -->
-          <rect x="0" y="112" width="286" height="62" fill="#0a0e1f" stroke="#1f2344" stroke-width="1"/>
-          <g font-family="Consolas, monospace" font-size="8.6">
-            <text x="8" y="128"><tspan fill="#34D399">$</tspan><tspan fill="#E5E7EB"> python agent.py</tspan></text>
-            <text x="8" y="141"><tspan fill="#34D399">✓</tspan><tspan fill="#9CA3AF"> AI initialized</tspan></text>
-            <text x="8" y="154"><tspan fill="#34D399">✓</tspan><tspan fill="#9CA3AF"> Memory Loaded</tspan></text>
-            <text x="8" y="167"><tspan fill="#34D399">✓</tspan><tspan fill="#9CA3AF"> Vector DB Connected</tspan></text>
-            <text x="8" y="180"><tspan fill="#67E8F9">✓ Running</tspan><tspan class="cursor-blink" fill="#67E8F9">▌</tspan></text>
-          </g>
-        </g>
-        <clipPath id="screenClip"><rect x="-142" y="-176" width="286" height="176"/></clipPath>
+  <text x="270" y="371" font-size="86" fill="#F5F3FF">Thiruneelakandan</text>
+</g>
 
-        <!-- laptop hinge highlight -->
-        <line x1="-190" y1="10" x2="190" y2="10" stroke="#4C3FA0" stroke-width="1.4" opacity="0.6"/>
-      </g>
+<!-- ================= SUBTITLE ================= -->
+<text x="272" y="428" class="sans" font-size="24" font-weight="600" letter-spacing="2" fill="#C7C5E6">
+  AI ENGINEER <tspan fill="#5B6088">&#183;</tspan> GENERATIVE AI DEVELOPER <tspan fill="#5B6088">&#183;</tspan> FULL STACK ENGINEER
+</text>
+<rect x="272" y="450" width="780" height="3" rx="1.5" fill="url(#nameGrad)"/>
 
-      <!-- ===================== floating card: neural network mini ===================== -->
-      <g transform="translate(112,320)" class="float-med card-hover">
-        <rect x="-40" y="-28" width="80" height="56" rx="10" fill="url(#cardGrad)" stroke="#A855F7" stroke-opacity="0.35" stroke-width="1"/>
-        <g stroke="#C084FC" stroke-width="0.8" opacity="0.7">
-          <line x1="-22" y1="-12" x2="0" y2="-16"/>
-          <line x1="-22" y1="-12" x2="0" y2="0"/>
-          <line x1="-22" y1="4" x2="0" y2="-16"/>
-          <line x1="-22" y1="4" x2="0" y2="0"/>
-          <line x1="-22" y1="4" x2="0" y2="16"/>
-          <line x1="-22" y1="-12" x2="0" y2="16"/>
-          <line x1="0" y1="-16" x2="22" y2="0"/>
-          <line x1="0" y1="0" x2="22" y2="0"/>
-          <line x1="0" y1="16" x2="22" y2="0"/>
-        </g>
-        <g fill="#E9D5FF">
-          <circle cx="-22" cy="-12" r="2.6"/><circle cx="-22" cy="4" r="2.6"/>
-          <circle cx="0" cy="-16" r="2.6"/><circle cx="0" cy="0" r="2.6"/><circle cx="0" cy="16" r="2.6"/>
-          <circle cx="22" cy="0" r="3" fill="#67E8F9"/>
-        </g>
-      </g>
+<!-- ================= TECH STACK ROW ================= -->
+<g class="sans" font-size="16" font-weight="600" fill="#B9B7D9" text-anchor="middle">
 
-      <!-- ===================== extra svg particles ===================== -->
-      <g fill="#A78BFA">
-        <circle class="svg-particle" cx="480" cy="60" r="2" style="animation-delay:-0.5s"/>
-        <circle class="svg-particle" cx="700" cy="180" r="1.6" style="animation-delay:-1.5s"/>
-        <circle class="svg-particle" cx="90" cy="180" r="1.8" style="animation-delay:-2.2s"/>
-        <circle class="svg-particle" cx="420" cy="420" r="2.2" style="animation-delay:-3s"/>
-        <circle class="svg-particle" cx="620" cy="440" r="1.6" style="animation-delay:-1s"/>
-      </g>
+  <g transform="translate(300,500)">
+    <circle r="30" fill="none" stroke="#3B82F6" stroke-width="1.4" opacity="0.5"/>
+    <path d="M-10,-14 h14 a6,6 0 0 1 6,6 v6 h-14 a6,6 0 0 1 -6,-6z" fill="#3B82F6"/>
+    <path d="M10,14 h-14 a6,6 0 0 1 -6,-6 v-6 h14 a6,6 0 0 1 6,6z" fill="#F9D65C"/>
+    <text y="52">Python</text>
+  </g>
 
-    </svg>
+  <g transform="translate(410,500)">
+    <circle r="30" fill="none" stroke="#F97316" stroke-width="1.4" opacity="0.5"/>
+    <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" fill="none" stroke="#F97316" stroke-width="2"/>
+    <text y="52">TensorFlow</text>
+  </g>
+
+  <g transform="translate(535,500)">
+    <circle r="30" fill="none" stroke="#67E8F9" stroke-width="1.4" opacity="0.5"/>
+    <circle r="4.5" fill="#67E8F9"/>
+    <g fill="none" stroke="#67E8F9" stroke-width="1.6">
+      <ellipse rx="18" ry="7"/>
+      <ellipse rx="18" ry="7" transform="rotate(60)"/>
+      <ellipse rx="18" ry="7" transform="rotate(120)"/>
+    </g>
+    <text y="52">React</text>
+  </g>
+
+  <g transform="translate(650,500)">
+    <circle r="30" fill="none" stroke="#22C55E" stroke-width="1.4" opacity="0.5"/>
+    <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" fill="#22C55E" opacity="0.9"/>
+    <text y="52">Node.js</text>
+  </g>
+
+  <g transform="translate(770,500)">
+    <circle r="30" fill="none" stroke="#3B82F6" stroke-width="1.4" opacity="0.5"/>
+    <ellipse cx="0" cy="-8" rx="15" ry="6" fill="none" stroke="#93C5FD" stroke-width="1.6"/>
+    <path d="M-15,-8 v14 a15,6 0 0 0 30,0 v-14" fill="none" stroke="#93C5FD" stroke-width="1.6"/>
+    <text y="52">PostgreSQL</text>
+  </g>
+
+  <g transform="translate(895,500)">
+    <circle r="30" fill="none" stroke="#38BDF8" stroke-width="1.4" opacity="0.5"/>
+    <g fill="#38BDF8">
+      <rect x="-18" y="-4" width="9" height="9" rx="1"/>
+      <rect x="-6" y="-4" width="9" height="9" rx="1"/>
+      <rect x="6" y="-4" width="9" height="9" rx="1"/>
+      <rect x="-6" y="-15" width="9" height="9" rx="1"/>
+      <rect x="6" y="-15" width="9" height="9" rx="1"/>
+    </g>
+    <path d="M-22,10 q22,14 44,0" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <text y="52">Docker</text>
+  </g>
+
+  <g transform="translate(1010,500)">
+    <circle r="30" fill="none" stroke="#F59E0B" stroke-width="1.4" opacity="0.5"/>
+    <path d="M-16,6 q16,14 32,0" fill="none" stroke="#F59E0B" stroke-width="2.4" stroke-linecap="round"/>
+    <polygon points="14,4 22,4 18,-3" fill="#F59E0B"/>
+    <text y="52">AWS</text>
+  </g>
+
+  <g transform="translate(1120,500)">
+    <circle r="30" fill="none" stroke="#A855F7" stroke-width="1.4" opacity="0.5"/>
+    <line x1="-10" y1="-14" x2="10" y2="14" stroke="#C084FC" stroke-width="2.2"/>
+    <circle cx="-10" cy="-14" r="4" fill="#C084FC"/>
+    <circle cx="10" cy="14" r="4" fill="#C084FC"/>
+    <circle cx="2" cy="0" r="4" fill="#C084FC"/>
+    <text y="52">Git</text>
+  </g>
+</g>
+
+<!-- ================= BOTTOM TERMINAL LINES ================= -->
+<g class="mono" font-size="19">
+  <text x="272" y="580" fill="#67E8F9">divya@dev:~$</text>
+  <text x="452" y="580" fill="#B9B7D9">code. build. innovate. repeat.</text>
+  <text x="272" y="608" fill="#5B6088">// Turning ideas into intelligent solutions.</text>
+</g>
+
+<!-- ================= BOTTOM PILL BAR ================= -->
+<g transform="translate(310,690)">
+  <rect x="0" y="0" width="1200" height="58" rx="16" fill="rgba(139,92,246,0.06)" stroke="#2E2A55" stroke-width="1"/>
+  <g class="sans" font-size="16" font-weight="600" fill="#C7C5E6">
+    <g transform="translate(36,29)">
+      <rect x="-10" y="-10" width="20" height="20" rx="4" fill="none" stroke="#67E8F9" stroke-width="1.6"/>
+      <text x="24" y="6">Problem Solver</text>
+    </g>
+    <g transform="translate(260,29)">
+      <polygon points="-4,-10 6,-10 0,0 6,0 -6,12 -2,1 -8,1" fill="#FBBF24"/>
+      <text x="20" y="6">Fast Learner</text>
+    </g>
+    <g transform="translate(468,29)">
+      <circle r="10" fill="none" stroke="#A855F7" stroke-width="1.6"/>
+      <path d="M-4,-3 a4,4 0 1 1 5,4" fill="none" stroke="#A855F7" stroke-width="1.4"/>
+      <text x="22" y="6">AI Enthusiast</text>
+    </g>
+    <g transform="translate(690,29)">
+      <path d="M-8,8 l10,-18 l6,10 l-8,4 z" fill="#34D399"/>
+      <text x="20" y="6">Builder</text>
+    </g>
+    <g transform="translate(858,29)">
+      <path d="M0,-10 C7,-10 10,-4 6,2 C3,7 0,10 0,10 C0,10 -3,7 -6,2 C-10,-4 -7,-10 0,-10 Z" fill="none" stroke="#67E8F9" stroke-width="1.6"/>
+      <text x="18" y="6">Lifelong Learner</text>
+    </g>
+  </g>
+</g>
+
+<!-- ================================================================
+     RIGHT SIDE
+     ================================================================ -->
+
+<!-- DVT dot-matrix pattern -->
+<g fill="#8B5CF6" fill-opacity="0.55">
+  <g id="dotD" transform="translate(1660,30)">
+    <circle class="twinkle" cx="0" cy="0" r="2"/><circle class="twinkle" cx="10" cy="0" r="2" style="animation-delay:-0.3s"/>
+    <circle class="twinkle" cx="0" cy="14" r="2" style="animation-delay:-0.6s"/><circle class="twinkle" cx="14" cy="14" r="2" style="animation-delay:-0.9s"/>
+    <circle class="twinkle" cx="0" cy="28" r="2" style="animation-delay:-1.2s"/><circle class="twinkle" cx="10" cy="28" r="2" style="animation-delay:-1.5s"/>
+    <circle class="twinkle" cx="0" cy="42" r="2" style="animation-delay:-0.4s"/><circle class="twinkle" cx="14" cy="42" r="2" style="animation-delay:-1.8s"/>
+    <circle class="twinkle" cx="0" cy="56" r="2" style="animation-delay:-2.1s"/><circle class="twinkle" cx="10" cy="56" r="2" style="animation-delay:-0.2s"/>
+    <circle class="twinkle" cx="0" cy="70" r="2" style="animation-delay:-2.4s"/><circle class="twinkle" cx="14" cy="70" r="2" style="animation-delay:-1.1s"/>
+  </g>
+  <g id="dotV" transform="translate(1730,30)">
+    <circle class="twinkle" cx="0" cy="0" r="2"/><circle class="twinkle" cx="20" cy="0" r="2" style="animation-delay:-0.5s"/>
+    <circle class="twinkle" cx="2" cy="20" r="2" style="animation-delay:-1s"/><circle class="twinkle" cx="18" cy="20" r="2" style="animation-delay:-1.5s"/>
+    <circle class="twinkle" cx="6" cy="40" r="2" style="animation-delay:-2s"/><circle class="twinkle" cx="14" cy="40" r="2" style="animation-delay:-0.2s"/>
+    <circle class="twinkle" cx="10" cy="56" r="2.4" style="animation-delay:-2.5s"/>
+  </g>
+  <g id="dotT" transform="translate(1800,30)">
+    <circle class="twinkle" cx="0" cy="0" r="2"/><circle class="twinkle" cx="10" cy="0" r="2" style="animation-delay:-0.4s"/><circle class="twinkle" cx="20" cy="0" r="2" style="animation-delay:-0.8s"/>
+    <circle class="twinkle" cx="10" cy="16" r="2" style="animation-delay:-1.2s"/><circle class="twinkle" cx="10" cy="32" r="2" style="animation-delay:-1.6s"/>
+    <circle class="twinkle" cx="10" cy="48" r="2" style="animation-delay:-2s"/><circle class="twinkle" cx="10" cy="64" r="2" style="animation-delay:-2.4s"/>
+  </g>
+</g>
+<g class="mono" font-size="13" fill="#5B6088">
+  <text x="1900" y="150">&gt;_</text>
+</g>
+
+<!-- Quote bubble -->
+<g transform="translate(1210,60)">
+  <rect x="0" y="0" width="470" height="98" rx="16" fill="rgba(139,92,246,0.07)" stroke="#3A3568" stroke-width="1"/>
+  <text x="20" y="34" class="sans" font-size="34" fill="#7C3AED" font-weight="800">&#8220;</text>
+  <text x="46" y="40" class="sans" font-size="19" fill="#E5E4F5">I don&#8217;t just write code,</text>
+  <text x="46" y="70" class="sans" font-size="19" fill="#E5E4F5">I build solutions that <tspan fill="#67E8F9" font-weight="700">think.</tspan></text>
+</g>
+
+<!-- Code editor window -->
+<g transform="translate(1150,190)">
+  <rect x="0" y="0" width="500" height="330" rx="14" fill="#0A0D20" stroke="#2E2A55" stroke-width="1.4"/>
+  <rect x="0" y="0" width="500" height="34" rx="14" fill="#12162e"/>
+  <rect x="0" y="20" width="500" height="14" fill="#12162e"/>
+  <circle cx="20" cy="17" r="6" fill="#F87171"/>
+  <circle cx="40" cy="17" r="6" fill="#FBBF24"/>
+  <circle cx="60" cy="17" r="6" fill="#34D399"/>
+  <text x="240" y="21" class="mono" font-size="13" fill="#6B6C8E" text-anchor="middle">developer.py</text>
+
+  <g class="mono" font-size="16">
+    <text x="24" y="66"><tspan fill="#C084FC">class</tspan><tspan fill="#F3F1FF"> Developer:</tspan></text>
+    <text x="24" y="94"><tspan fill="#C084FC">    def</tspan><tspan fill="#60A5FA"> __init__</tspan><tspan fill="#F3F1FF">(self):</tspan></text>
+    <text x="24" y="122"><tspan fill="#F3F1FF">        self.passion = </tspan><tspan fill="#34D399">"AI &amp; Code"</tspan></text>
+    <text x="24" y="150"><tspan fill="#F3F1FF">        self.focus = [</tspan><tspan fill="#34D399">"Learn","Build","Ship"</tspan><tspan fill="#F3F1FF">]</tspan></text>
+    <text x="24" y="178"><tspan fill="#F3F1FF">        self.mindset = </tspan><tspan fill="#34D399">"Progress &gt; Perfection"</tspan></text>
+
+    <text x="24" y="212"><tspan fill="#C084FC">    def</tspan><tspan fill="#60A5FA"> build</tspan><tspan fill="#F3F1FF">(self, idea):</tspan></text>
+    <text x="24" y="240"><tspan fill="#C084FC">        return</tspan><tspan fill="#F3F1FF"> f</tspan><tspan fill="#34D399">"Building {idea} into reality"</tspan></text>
+
+    <text x="24" y="272" fill="#6B6C8E"># Keep building. Keep growing.</text>
+    <text x="24" y="296"><tspan fill="#F3F1FF">divya = </tspan><tspan fill="#60A5FA">Developer</tspan><tspan fill="#F3F1FF">()</tspan></text>
+    <text x="24" y="320"><tspan fill="#C084FC">print</tspan><tspan fill="#F3F1FF">(divya.</tspan><tspan fill="#60A5FA">build</tspan><tspan fill="#F3F1FF">(</tspan><tspan fill="#34D399">"The Future"</tspan><tspan fill="#F3F1FF">))</tspan><tspan class="blink" fill="#67E8F9">&#9615;</tspan></text>
+  </g>
+</g>
+
+<!-- Small skills terminal window -->
+<g transform="translate(1680,215)">
+  <rect x="0" y="0" width="270" height="270" rx="14" fill="#0A0D20" stroke="#2E2A55" stroke-width="1.4"/>
+  <rect x="0" y="0" width="270" height="30" rx="14" fill="#12162e"/>
+  <rect x="0" y="16" width="270" height="14" fill="#12162e"/>
+  <circle cx="18" cy="15" r="5" fill="#F87171"/>
+  <circle cx="34" cy="15" r="5" fill="#FBBF24"/>
+  <circle cx="50" cy="15" r="5" fill="#34D399"/>
+
+  <g class="mono" font-size="13.5">
+    <text x="16" y="56" fill="#67E8F9">divya@dev:~$ ls -la skills/</text>
+    <text x="26" y="82"><tspan fill="#7C3AED">&#9679; </tspan><tspan fill="#C7C5E6">ai/</tspan></text>
+    <text x="26" y="106"><tspan fill="#7C3AED">&#9679; </tspan><tspan fill="#C7C5E6">ml/</tspan></text>
+    <text x="26" y="130"><tspan fill="#7C3AED">&#9679; </tspan><tspan fill="#C7C5E6">backend/</tspan></text>
+    <text x="26" y="154"><tspan fill="#7C3AED">&#9679; </tspan><tspan fill="#C7C5E6">frontend/</tspan></text>
+    <text x="26" y="178"><tspan fill="#7C3AED">&#9679; </tspan><tspan fill="#C7C5E6">cloud/</tspan></text>
+    <text x="26" y="202"><tspan fill="#7C3AED">&#9679; </tspan><tspan fill="#C7C5E6">devops/</tspan></text>
+    <text x="16" y="234" fill="#5B6088">6 directories</text>
+    <text x="16" y="252" class="blink" fill="#67E8F9">&#9615;</text>
+  </g>
+</g>
+
+<!-- Brain badge floating -->
+<g transform="translate(1815,470)" class="float">
+  <rect x="0" y="0" width="170" height="90" rx="16" fill="rgba(6,182,212,0.08)" stroke="#0E7490" stroke-width="1.4"/>
+  <g transform="translate(30,32)">
+    <path d="M-14,-10 a10,10 0 0 1 14,-4 a10,10 0 0 1 14,4 a9,9 0 0 1 -3,17 a9,9 0 0 1 -22,0 a9,9 0 0 1 -3,-17z"
+          fill="none" stroke="#67E8F9" stroke-width="1.6"/>
+    <line x1="0" y1="-13" x2="0" y2="12" stroke="#67E8F9" stroke-width="1.2" opacity="0.7"/>
+  </g>
+  <text x="56" y="42" class="sans" font-size="14" font-weight="700" fill="#A5F3FC">Generative AI</text>
+  <text x="56" y="62" class="sans" font-size="14" font-weight="700" fill="#A5F3FC">Explorer</text>
+</g>
+
+<!-- ============= ILLUSTRATED DEVELOPER AT DESK ============= -->
+<g transform="translate(1560,430)">
+
+  <!-- desk surface -->
+  <polygon points="-140,300 480,300 480,330 -140,330" fill="#141330"/>
+  <rect x="-140" y="295" width="620" height="10" fill="#1B1A3D"/>
+
+  <!-- chair -->
+  <path d="M180,90 q70,-6 66,80 q30,10 24,50 l-18,110 q-4,20 -26,20 h-30 l10,-150 q4,-40 -26,-46z"
+        fill="url(#personGrad)"/>
+
+  <!-- plant pot -->
+  <g transform="translate(-90,230)">
+    <path d="M-16,0 h32 l-6,40 h-20 z" fill="#2E2A55"/>
+    <path d="M0,-4 q-22,-18 -30,-46 q26,-2 34,20 q10,-30 34,-30 q0,30 -22,44 q10,4 8,14 q-14,-8 -24,-2z" fill="#22C55E" opacity="0.85"/>
+  </g>
+
+  <!-- mug -->
+  <g transform="translate(-20,268)">
+    <rect x="-14" y="0" width="28" height="26" rx="4" fill="#3A3568"/>
+    <path d="M14,6 q14,0 14,10 q0,10 -14,10" fill="none" stroke="#3A3568" stroke-width="4"/>
+    <path class="steam" d="M-4,-6 q-4,-8 2,-14" fill="none" stroke="#8B94C9" stroke-width="2" stroke-linecap="round"/>
+    <path class="steam" style="animation-delay:-1.3s" d="M4,-6 q4,-8 -2,-14" fill="none" stroke="#8B94C9" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- laptop on desk -->
+  <g transform="translate(60,220)">
+    <polygon points="-90,60 90,60 116,84 -116,84" fill="#1B1A3D" stroke="#302C5C" stroke-width="1"/>
+    <polygon points="-90,60 90,60 78,-58 -78,-58" fill="#100E28" stroke="#302C5C" stroke-width="1"/>
+    <polygon points="-72,50 72,50 62,-46 -62,-46" fill="url(#winGrad)" stroke="#7C3AED" stroke-opacity="0.5" stroke-width="1"/>
+    <text x="0" y="-18" text-anchor="middle" class="mono" font-size="11" fill="#67E8F9">&lt;/&gt;</text>
+    <line x1="-40" y1="4" x2="40" y2="4" stroke="#3A3568" stroke-width="2"/>
+    <line x1="-46" y1="16" x2="46" y2="16" stroke="#3A3568" stroke-width="2"/>
+    <line x1="-34" y1="28" x2="34" y2="28" stroke="#3A3568" stroke-width="2"/>
+  </g>
+
+  <!-- torso / hoodie (back view) -->
+  <path d="M20,120 q-70,-6 -96,60 q-14,34 -6,90 q4,30 30,34 h190 q26,-4 30,-34 q8,-56 -6,-90 q-26,-66 -96,-60z"
+        fill="url(#personGrad)"/>
+  <path d="M20,120 q-70,-6 -96,60 q-8,20 -8,44 h214 q0,-24 -8,-44 q-26,-66 -102,-60z"
+        fill="#231C4A" opacity="0.55"/>
+
+  <!-- hood collar -->
+  <path d="M-30,118 q50,-24 100,0 q-6,20 -50,20 q-44,0 -50,-20z" fill="#2A2352"/>
+
+  <!-- arm reaching to keyboard -->
+  <path d="M92,150 q56,10 70,54 q6,20 -10,28 q-18,6 -28,-14 q-14,-30 -46,-42z" fill="url(#personGrad)"/>
+  <ellipse cx="150" cy="222" rx="10" ry="7" fill="#3B2E6B"/>
+
+  <path d="M-64,150 q-50,14 -60,56 q-4,18 12,24 q16,4 24,-14 q10,-28 40,-40z" fill="url(#personGrad)"/>
+
+  <!-- head -->
+  <circle cx="20" cy="60" r="46" fill="#3B2E6B"/>
+  <path d="M-26,44 q-4,-52 46,-56 q52,-2 56,50 q2,20 -8,34 q4,-30 -10,-46 q-16,-18 -42,-16 q-30,2 -36,30 q-6,-4 -6,4z"
+        fill="url(#hairGrad)"/>
+  <!-- ponytail -->
+  <path d="M62,26 q30,4 30,44 q2,34 -14,64 q-10,18 -22,16 q10,-30 6,-56 q-4,-30 -22,-46 q10,-16 22,-22z"
+        fill="url(#hairGrad)"/>
+  <path d="M60,30 q26,6 24,42" fill="none" stroke="#3A3568" stroke-width="1" opacity="0.5"/>
+
+  <!-- ear hint -->
+  <ellipse cx="-22" cy="62" rx="6" ry="10" fill="#3B2E6B"/>
+
+</g>
+
+<!-- subtle vignette -->
+<rect x="0" y="0" width="1960" height="780" fill="none" stroke="none"/>
+</svg>
