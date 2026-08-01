@@ -373,7 +373,7 @@
 <!-- ================= TECH STACK ROW ================= -->
 <g class="sans" font-size="16" font-weight="600" fill="#B9B7D9" text-anchor="middle">
 
-  <g transform="translate(300,545)">
+  <g transform="translate(312,548)">
     <circle r="34" fill="#3B82F6" opacity="0.10" filter="url(#blurMd)"/>
     <circle r="30" fill="none" stroke="#3B82F6" stroke-width="1.4" opacity="0.5"/>
     <path d="M-10,-14 h14 a6,6 0 0 1 6,6 v6 h-14 a6,6 0 0 1 -6,-6z" fill="#3B82F6"/>
@@ -381,14 +381,14 @@
     <text y="52">Python</text>
   </g>
 
-  <g transform="translate(410,545)">
+  <g transform="translate(452,548)">
     <circle r="34" fill="#F97316" opacity="0.10" filter="url(#blurMd)"/>
     <circle r="30" fill="none" stroke="#F97316" stroke-width="1.4" opacity="0.5"/>
     <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" fill="none" stroke="#F97316" stroke-width="2"/>
     <text y="52">TensorFlow</text>
   </g>
 
-  <g transform="translate(535,545)">
+  <g transform="translate(592,548)">
     <circle r="34" fill="#67E8F9" opacity="0.10" filter="url(#blurMd)"/>
     <circle r="30" fill="none" stroke="#67E8F9" stroke-width="1.4" opacity="0.5"/>
     <circle r="4.5" fill="#67E8F9"/>
@@ -400,14 +400,14 @@
     <text y="52">React</text>
   </g>
 
-  <g transform="translate(650,545)">
+  <g transform="translate(732,548)">
     <circle r="34" fill="#22C55E" opacity="0.10" filter="url(#blurMd)"/>
     <circle r="30" fill="none" stroke="#22C55E" stroke-width="1.4" opacity="0.5"/>
     <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" fill="#22C55E" opacity="0.9"/>
     <text y="52">Node.js</text>
   </g>
 
-  <g transform="translate(770,545)">
+  <g transform="translate(872,548)">
     <circle r="34" fill="#3B82F6" opacity="0.10" filter="url(#blurMd)"/>
     <circle r="30" fill="none" stroke="#3B82F6" stroke-width="1.4" opacity="0.5"/>
     <ellipse cx="0" cy="-8" rx="15" ry="6" fill="none" stroke="#93C5FD" stroke-width="1.6"/>
@@ -415,7 +415,7 @@
     <text y="52">PostgreSQL</text>
   </g>
 
-  <g transform="translate(895,545)">
+  <g transform="translate(1012,548)">
     <circle r="34" fill="#38BDF8" opacity="0.10" filter="url(#blurMd)"/>
     <circle r="30" fill="none" stroke="#38BDF8" stroke-width="1.4" opacity="0.5"/>
     <g fill="#38BDF8">
@@ -429,7 +429,7 @@
     <text y="52">Docker</text>
   </g>
 
-  <g transform="translate(1010,545)">
+  <g transform="translate(1152,548)">
     <circle r="34" fill="#F59E0B" opacity="0.10" filter="url(#blurMd)"/>
     <circle r="30" fill="none" stroke="#F59E0B" stroke-width="1.4" opacity="0.5"/>
     <path d="M-16,6 q16,14 32,0" fill="none" stroke="#F59E0B" stroke-width="2.4" stroke-linecap="round"/>
@@ -437,7 +437,7 @@
     <text y="52">AWS</text>
   </g>
 
-  <g transform="translate(1120,545)">
+  <g transform="translate(1292,548)">
     <circle r="34" fill="#A855F7" opacity="0.10" filter="url(#blurMd)"/>
     <circle r="30" fill="none" stroke="#A855F7" stroke-width="1.4" opacity="0.5"/>
     <line x1="-10" y1="-14" x2="10" y2="14" stroke="#C084FC" stroke-width="2.2"/>
