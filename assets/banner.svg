@@ -1,81 +1,336 @@
-<svg width="1200" height="360" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0B1120"/>
-      <stop offset="55%" stop-color="#0E1428"/>
-      <stop offset="100%" stop-color="#0B1120"/>
-    </linearGradient>
+You are an award-winning UI/UX designer, creative frontend engineer, SVG artist, and motion designer.
 
-    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F8FAFC"/>
-      <stop offset="60%" stop-color="#C9D3FF"/>
-      <stop offset="100%" stop-color="#7C3AED"/>
-    </linearGradient>
+Your task is to create an extremely premium GitHub profile banner as ONE self-contained HTML file.
 
-    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0"/>
-      <stop offset="20%" stop-color="#7C3AED"/>
-      <stop offset="50%" stop-color="#06B6D4"/>
-      <stop offset="80%" stop-color="#3B82F6"/>
-      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
-    </linearGradient>
+DO NOT explain anything.
 
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.28"/>
-      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
-    </radialGradient>
+Output ONLY the complete HTML code.
 
-    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18"/>
-    </filter>
+The HTML must contain everything:
+- HTML
+- CSS
+- SVG
+- JavaScript (only if required)
 
-    <style>
-      .role { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif; }
-      @keyframes drift { 0% { transform: translate(0,0); } 50% { transform: translate(24px,-14px); } 100% { transform: translate(0,0); } }
-      @keyframes pulse { 0%,100% { opacity:.55; r:2.4; } 50% { opacity:1; r:4.2; } }
-      @keyframes fadeUp { 0% { opacity:0; transform: translateY(10px); } 100% { opacity:1; transform: translateY(0); } }
-      .orb1 { animation: drift 9s ease-in-out infinite; }
-      .orb2 { animation: drift 12s ease-in-out infinite reverse; }
-      .dot { animation: pulse 2.6s ease-in-out infinite; }
-      .rise1 { animation: fadeUp .9s ease-out both; }
-      .rise2 { animation: fadeUp .9s ease-out .15s both; }
-      .rise3 { animation: fadeUp .9s ease-out .3s both; }
-    </style>
-  </defs>
+No external dependencies.
+No Bootstrap.
+No Tailwind.
+No React.
+No images.
+No icon libraries.
+Everything must be vector-based using SVG.
 
-  <rect width="1200" height="360" fill="url(#bg)"/>
+====================================================
 
-  <circle class="orb1" cx="180" cy="80" r="160" fill="url(#glow)" filter="url(#soft)"/>
-  <circle class="orb2" cx="1040" cy="300" r="200" fill="url(#glow)" filter="url(#soft)"/>
+Canvas
 
-  <!-- signature waveform motif: an LLM "signal" line -->
-  <g transform="translate(340,232)" opacity="0.9">
-    <path d="M0,20 L20,20 L30,4 L40,36 L50,-4 L60,44 L70,0 L80,20 L100,20"
-          fill="none" stroke="url(#waveGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M120,20 L140,20 L150,10 L160,30 L170,4 L180,36 L190,20 L210,20"
-          fill="none" stroke="url(#waveGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M230,20 L250,20 L260,-2 L270,42 L280,8 L290,20 L310,20"
-          fill="none" stroke="url(#waveGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle class="dot" cx="30" cy="4" r="3" fill="#7C3AED"/>
-    <circle class="dot" cx="170" cy="4" r="3" fill="#06B6D4"/>
-    <circle class="dot" cx="260" cy="-2" r="3" fill="#3B82F6"/>
-  </g>
+Width: 1500px
+Height: 500px
 
-  <text x="600" y="150" text-anchor="middle" class="role rise1"
-        font-size="54" font-weight="700" fill="url(#nameGrad)" letter-spacing="0.5">
-    Divya Venkatachalam T
-  </text>
+GitHub README banner style.
 
-  <text x="600" y="190" text-anchor="middle" class="role rise2"
-        font-size="19" font-weight="500" fill="#9FB3D9" letter-spacing="1.5">
-    GENAI ENGINEER  ·  FOUNDER @ CLYRA  ·  FULL-STACK BUILDER
-  </text>
+Dark futuristic cyberpunk aesthetic.
 
-  <g class="rise3" transform="translate(600,282)">
-    <rect x="-165" y="-16" width="330" height="32" rx="16" fill="#111A33" stroke="#233150"/>
-    <circle cx="-141" cy="0" r="4" fill="#22C55E"/>
-    <text x="-125" y="5" font-size="13" fill="#CBD5F5" font-family="-apple-system,Segoe UI,sans-serif" letter-spacing="0.3">
-      final-year CSE · Data Science @ IIT Madras
-    </text>
-  </g>
-</svg>
+====================================================
+
+Theme
+
+Background:
+Very dark navy (#050816)
+
+Accent colors
+
+#7C3AED
+#8B5CF6
+#06B6D4
+#3B82F6
+#A855F7
+
+Style
+
+Glassmorphism
+Neon glow
+Developer workspace
+Premium AI engineer
+Minimal but detailed
+
+====================================================
+
+Layout
+
+Left 55%
+
+Large name
+
+Divya Venkatachalam Thiruneelakandan
+
+Subtitle
+
+AI Engineer
+Generative AI Developer
+Full Stack Engineer
+
+Small description
+
+Building intelligent software that thinks, learns, and scales.
+
+Buttons
+
+View Projects
+
+Open Source
+
+Small glowing availability badge
+
+● Available for Collaboration
+
+====================================================
+
+Bottom left
+
+Tech stack pills
+
+Python
+LangGraph
+CrewAI
+FastAPI
+TensorFlow
+PyTorch
+Docker
+Kubernetes
+AWS
+Azure
+React
+Next.js
+Node.js
+PostgreSQL
+MongoDB
+Git
+Linux
+
+====================================================
+
+Right Side
+
+Design an isometric developer workspace.
+
+NO photos.
+
+Create everything using SVG.
+
+Include
+
+Laptop
+
+3D perspective
+
+Glowing screen
+
+Code editor
+
+Terminal
+
+Floating windows
+
+AI brain hologram
+
+Network nodes
+
+Cloud icon
+
+Database icon
+
+Git branching visualization
+
+Cyber security shield
+
+Neural network
+
+API flow
+
+Floating cards
+
+Animated glowing particles
+
+Code snippets
+
+Small graphs
+
+Digital circuits
+
+====================================================
+
+Laptop screen
+
+Show beautiful syntax highlighted code.
+
+Example
+
+def build_ai():
+    agent = CrewAI()
+    model = "Llama-3"
+    return agent.run()
+
+Use proper syntax colors.
+
+====================================================
+
+Terminal
+
+$ python agent.py
+
+✓ AI initialized
+
+✓ Memory Loaded
+
+✓ Vector DB Connected
+
+✓ Running...
+
+Cursor blinking.
+
+====================================================
+
+Background
+
+Animated gradient mesh
+
+Blurred glowing circles
+
+Circuit board lines
+
+Hexagon outlines
+
+Dots
+
+Grid
+
+Constellation lines
+
+Floating particles
+
+Animated neon waves
+
+====================================================
+
+Animations
+
+Everything should animate smoothly.
+
+Include
+
+Floating
+
+Parallax
+
+Pulse
+
+Glow
+
+Typing cursor
+
+Wave movement
+
+Gradient shifting
+
+Particles
+
+Hover effects
+
+Fade in
+
+Breathing glow
+
+Use CSS keyframes only.
+
+No JavaScript unless absolutely necessary.
+
+====================================================
+
+Typography
+
+Modern
+
+Inter
+
+System UI
+
+Large bold typography
+
+Gradient text
+
+Excellent spacing
+
+====================================================
+
+Visual Quality
+
+This should look like a premium Dribbble landing page.
+
+Use soft shadows.
+
+Use glass cards.
+
+Rounded corners.
+
+Beautiful gradients.
+
+Professional spacing.
+
+====================================================
+
+Optimization
+
+Everything must be responsive.
+
+No external files.
+
+Everything embedded.
+
+No CDN.
+
+No fonts from internet.
+
+No images.
+
+No SVG imports.
+
+Write SVG manually.
+
+====================================================
+
+Code Quality
+
+Organize code cleanly.
+
+Use comments.
+
+Separate sections.
+
+Readable CSS.
+
+Readable SVG.
+
+Readable HTML.
+
+====================================================
+
+Final Requirement
+
+Generate ONE complete index.html file.
+
+It should be at least 900-1500 lines long if necessary.
+
+Do not shorten anything.
+
+Do not omit any section.
+
+Do not use placeholders.
+
+Do not write "..." anywhere.
+
+Generate every SVG manually.
+
+The HTML should be immediately runnable by simply opening it in a browser.
+
+Output ONLY the HTML.
