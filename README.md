@@ -1,5 +1,5 @@
 <!--
-  DIVYA VENKATACHALAM T — GITHUB PROFILE README
+  DIVYA VENKATACHALAM THIRUNEELAKANDAN — GITHUB PROFILE README
   Design system: dark, minimal, gradient-accented (Apple/Linear/Vercel inspired)
   Palette → bg #0B1120 · primary #7C3AED · secondary #3B82F6 · accent #06B6D4 · success #22C55E · text #F8FAFC
   See SETUP.md for every placeholder you need to replace before this goes live.
